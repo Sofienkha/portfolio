@@ -1,0 +1,241 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #0f172a;
+    /* Slate 900 */
+    color: #f1f5f9;
+    /* Slate 100 */
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+@layer utilities {
+
+  /* Custom utility classes used in App.tsx */
+  .bg-slate-850 {
+    background-color: #1e293b80;
+    /* Transparent Slate 800 */
+    backdrop-filter: blur(8px);
+  }
+
+  .border-slate-850 {
+    border-color: #33415550;
+    /* Subtle Slate 700 border */
+  }
+
+  .bg-slate-900\/90 {
+    background-color: rgb(15 23 42 / 0.9);
+  }
+}
+
+/* Animations and Premium Screen Styles */
+.hover-card-trigger {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-card-trigger:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 20px -8px rgba(59, 130, 246, 0.15);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Page Break Avoid for Print */
+.page-break-inside-avoid {
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+}
+
+/* -------------------------------------------------------------
+   PRINT MEDIA STYLES - Tailored for a perfect A4 2-Page CV
+   ------------------------------------------------------------- */
+@media print {
+  @page {
+    size: A4;
+    margin: 0 !important;
+    /* Removes browser-added headers (title/date) and footers (URL/page numbers) */
+  }
+
+  body {
+    padding: 12mm 15mm !important;
+    /* Re-applies margins as internal padding to prevent content clipping */
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    background: #ffffff !important;
+    color: #1a202c !important;
+    font-size: 8.5pt !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Reset all screen-specific dark styles */
+  * {
+    background-color: transparent !important;
+    color: #1a202c !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    border-color: #e2e8f0 !important;
+  }
+
+  /* Structural Grid Adjustments */
+  .grid {
+    display: grid !important;
+    grid-template-columns: 1fr 2.1fr !important;
+    /* Perfect 2-column layout in print */
+    gap: 1.5rem !important;
+  }
+
+  /* Column allocations */
+  .lg\:col-span-1,
+  .print\:col-span-1 {
+    grid-column: span 1 / span 1 !important;
+  }
+
+  .lg\:col-span-2,
+  .print\:col-span-2 {
+    grid-column: span 1 / span 1 !important;
+  }
+
+  /* Force header structure in print */
+  header {
+    background: #ffffff !important;
+    border-bottom: 2px solid #e2e8f0 !important;
+    padding-bottom: 1.25rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  header .flex:not(.print\:hidden) {
+    display: flex !important;
+    flex-direction: row !important;
+    text-align: left !important;
+    align-items: center !important;
+    gap: 1.5rem !important;
+  }
+
+  /* Adjust header text colors for black/white */
+  h1 {
+    font-size: 20pt !important;
+    color: #0f172a !important;
+    font-weight: 800 !important;
+    margin-bottom: 0.15rem !important;
+  }
+
+  h2 {
+    font-size: 12pt !important;
+    color: #475569 !important;
+    font-weight: 650 !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  /* Section Headings */
+  h3 {
+    font-size: 10pt !important;
+    font-weight: 750 !important;
+    color: #0f172a !important;
+    border-bottom: 1.5px solid #cbd5e1 !important;
+    padding-bottom: 0.25rem !important;
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  h4 {
+    font-size: 9.5pt !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+  }
+
+  /* Paragraph and List Font Sizes */
+  p,
+  li,
+  span,
+  a {
+    font-size: 8.5pt !important;
+    color: #334155 !important;
+  }
+
+  ul {
+    margin-top: 0.25rem !important;
+  }
+
+  li {
+    margin-bottom: 0.25rem !important;
+    line-height: 1.35 !important;
+  }
+
+  /* Contact and Sidebar Card Spacers */
+  section {
+    border: none !important;
+    padding: 0 !important;
+    margin-bottom: 1.25rem !important;
+    background: transparent !important;
+  }
+
+  /* Print specific labels */
+  .text-blue-400,
+  .text-blue-450 {
+    color: #1e40af !important;
+    /* Rich Dark Blue for print links */
+  }
+
+  .text-emerald-400,
+  .text-emerald-500 {
+    color: #065f46 !important;
+    /* Dark emerald for print */
+    font-weight: 700 !important;
+  }
+
+  .text-slate-500,
+  .text-slate-400 {
+    color: #64748b !important;
+  }
+
+  /* Skill Badge Styling for Print */
+  .print\:bg-gray-100 {
+    background-color: #f1f5f9 !important;
+    /* Light slate gray */
+    border: 1px solid #cbd5e1 !important;
+    color: #1e293b !important;
+    padding: 0.15rem 0.4rem !important;
+    margin: 0.12rem !important;
+    display: inline-block !important;
+    font-size: 7.5pt !important;
+    border-radius: 4px !important;
+  }
+
+  /* Timeline formatting in print */
+  .border-l {
+    border-left: 1.5px solid #cbd5e1 !important;
+  }
+
+  .bg-blue-500 {
+    background-color: #3b82f6 !important;
+  }
+
+  /* Hiding Interactive/Floating Elements */
+  .print\:hidden {
+    display: none !important;
+  }
+
+  /* Spacing adjustment to fit 2 pages exactly */
+  .space-y-8>*+* {
+    margin-top: 1rem !important;
+  }
+}
