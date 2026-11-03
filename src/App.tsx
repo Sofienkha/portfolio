@@ -234,7 +234,7 @@ function App() {
                   <Linkedin className="w-5 h-5 text-slate-500 mt-0.5 flex-shrink-0" />
                   <div>
                     <span className="block text-slate-500">{t.personalInfo.linkedinLabel}</span>
-                    <a href="https://linkedin.com/in/sofien-khalifa" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline flex items-center gap-1">
+                    <a href="https://www.linkedin.com/in/sofien-khalifa-51377218a/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline flex items-center gap-1">
                       <span>sofien-khalifa</span>
                       <ExternalLink className="w-3 h-3" />
                     </a>
@@ -245,7 +245,7 @@ function App() {
                   <Github className="w-5 h-5 text-slate-500 mt-0.5 flex-shrink-0" />
                   <div>
                     <span className="block text-slate-500">{t.personalInfo.githubLabel}</span>
-                    <a href="https://github.com/sofien-khalifa" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline flex items-center gap-1">
+                    <a href="https://github.com/Sofienkha" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline flex items-center gap-1">
                       <span>sofien-khalifa</span>
                       <ExternalLink className="w-3 h-3" />
                     </a>
